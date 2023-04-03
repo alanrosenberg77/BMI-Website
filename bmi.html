@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>Are You Fat!</title>
+        <script>
+            var weight;
+            var height;
+            var result = document.getElementById("answer");
+            var bmi;
+
+            function calcBMI(){
+                weight = document.getElementById("weightInput").value;
+                height = document.getElementById("heightInput").value;
+
+                if(isNaN(weight)){
+                    result.innerHTML = "stupid";
+                }
+                else if(isNaN(height)){
+                    result.innerHTML = "9+10 kinda stupid"
+                }
+                else{
+                    bmi = (weight / (height * height)) * 703;
+
+                    answer.innerHTML = "You have a BMI of " + Math.round(bmi * 10) / 10;
+                }
+            }
+        </script>
+        <style>
+            div {
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <div>
+                <h1>Are You Fat!</h1>
+            </div>
+            <div>
+                <p>Enter your metrics (but not in metric)</p>
+            </div>
+            <div>
+                <label for="weightInput">Weight (lb):</label><br/>
+                <input type="number" id="weightInput"/>
+            </div>
+            <div>
+                <label for="heightInput">Height (in):</label><br/>
+                <input type="number" id="heightInput"/>
+            </div>
+            <div>
+                <button onclick="calcBMI()">Enter</button>
+                <p id="answer"></p>
+            </div>
+        </center>
+    </body>
+</html>
