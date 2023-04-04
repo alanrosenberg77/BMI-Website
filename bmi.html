@@ -3,31 +3,36 @@
     <head>
         <title>Are You Fat!</title>
         <script>
-            var weight;
-            var height;
-            var result = document.getElementById("answer");
-            var bmi;
 
             function calcBMI(){
-                weight = document.getElementById("weightInput").value;
-                height = document.getElementById("heightInput").value;
+                answer.innerHTML = "";
+                msg.innerHTML = "";
+                weight = weightInput.value;
+                height = heightInput.value;
 
-                if(isNaN(weight)){
-                    result.innerHTML = "stupid";
-                }
-                else if(isNaN(height)){
-                    result.innerHTML = "9+10 kinda stupid"
-                }
-                else{
-                    bmi = (weight / (height * height)) * 703;
+                bmi = (weight / (height * height)) * 703;
 
-                    answer.innerHTML = "You have a BMI of " + Math.round(bmi * 10) / 10;
+                answer.innerHTML = "You have a BMI of " + Math.round(bmi * 10) / 10;
+                if (bmi >= 25) {
+                    msg.innerHTML = "So yes! You are fat!"
+                }
+                else if(bmi < 18.5){
+                    msg.innerHTML = "Not fat! Clinically underweight! Doobies!"
                 }
             }
         </script>
         <style>
             div {
                 margin: 20px;
+            }
+            h1 {
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            label {
+                font-family:Helvetica, Arial, sans-serif;
+            }
+            p {
+                font-family: Helvetica, Arial, sans-serif;
             }
         </style>
     </head>
@@ -50,6 +55,7 @@
             <div>
                 <button onclick="calcBMI()">Enter</button>
                 <p id="answer"></p>
+                <p id="msg"></p>
             </div>
         </center>
     </body>
